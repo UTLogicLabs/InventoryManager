@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ButtonBar?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0"
+            prefWidth="775.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="Controller.ModifyPart">
+   <HBox alignment="CENTER_LEFT" prefHeight="50.0" prefWidth="775.0" spacing="10.0">
+      <padding>
+         <Insets left="10.0"/>
+      </padding>
+      <Label prefHeight="50.0" prefWidth="160.0" text="Modify Parts" textFill="#157cff">
+         <font>
+            <Font name="System Bold" size="18.0"/>
+         </font>
+      </Label>
+      <RadioButton fx:id="inHouseRadioBtn" mnemonicParsing="false" onMouseClicked="#changePartType" prefHeight="50.0"
+                   prefWidth="109.0" text="In-House">
+         <font>
+            <Font size="14.0"/>
+         </font>
+         <toggleGroup>
+            <ToggleGroup fx:id="partsSource"/>
+         </toggleGroup>
+      </RadioButton>
+      <RadioButton fx:id="outsourcedRadioBtn" mnemonicParsing="false" onMouseClicked="#changePartType"
+                   prefHeight="50.0" prefWidth="109.0" text="Outsourced" toggleGroup="$partsSource">
+         <font>
+            <Font size="14.0"/>
+         </font>
+      </RadioButton>
+   </HBox>
+   <VBox layoutX="179.0" layoutY="50.0" prefHeight="300.0" prefWidth="387.5" spacing="10.0">
+      <padding>
+         <Insets top="50.0"/>
+      </padding>
+      <HBox prefHeight="25.0" prefWidth="200.0" spacing="10.0">
+         <Label prefHeight="25.0" prefWidth="90.0" text="ID:"/>
+         <TextField fx:id="partIdTxt" disable="true" prefHeight="25.0" prefWidth="287.0"
+                    promptText="Auto Generated - Disabled"/>
+      </HBox>
+      <HBox prefHeight="25.0" prefWidth="200.0" spacing="10.0">
+         <Label prefHeight="25.0" prefWidth="90.0" text="Name:"/>
+         <TextField fx:id="partNameTxt" prefHeight="25.0" prefWidth="287.0" promptText="Part Name"/>
+      </HBox>
+      <HBox prefHeight="25.0" prefWidth="200.0" spacing="10.0">
+         <Label prefHeight="25.0" prefWidth="90.0" text="Inventory:"/>
+         <TextField fx:id="partInvTxt" prefHeight="25.0" prefWidth="287.0" promptText="Inventory"/>
+      </HBox>
+      <HBox prefHeight="25.0" prefWidth="200.0" spacing="10.0">
+         <Label prefHeight="25.0" prefWidth="90.0" text="Price/Cost:"/>
+         <TextField fx:id="partPriceTxt" prefHeight="25.0" prefWidth="287.0" promptText="Price/Cost"/>
+      </HBox>
+      <HBox prefHeight="25.0" prefWidth="200.0" spacing="10.0">
+         <Label prefHeight="25.0" prefWidth="96.0" text="Max:"/>
+         <TextField fx:id="partInvMaxTxt" prefHeight="25.0" prefWidth="100.0" promptText="Max"/>
+         <Label prefHeight="25.0" prefWidth="90.0" text="Min:"/>
+         <TextField fx:id="partInvMinTxt" prefWidth="100.0" promptText="Min"/>
+      </HBox>
+      <HBox prefHeight="25.0" prefWidth="200.0" spacing="10.0">
+         <Label fx:id="partTypeLbl" prefHeight="25.0" prefWidth="90.0" text="Label"/>
+         <TextField fx:id="partSourceTxt" prefHeight="25.0" prefWidth="287.0"/>
+      </HBox>
+   </VBox>
+   <ButtonBar layoutX="1.0" layoutY="350.0" prefHeight="50.0" prefWidth="775.0">
+      <buttons>
+         <Button fx:id="savePartBtn" mnemonicParsing="false" onMouseClicked="#savePart" prefHeight="25.0"
+                 prefWidth="75.0" text="Save"/>
+         <Button fx:id="cancelBtn" mnemonicParsing="false" onMouseClicked="#cancelModifyPart" prefHeight="25.0"
+                 prefWidth="75.0" text="Cancel"/>
+      </buttons>
+      <padding>
+         <Insets right="10.0"/>
+      </padding>
+   </ButtonBar>
+</AnchorPane>
